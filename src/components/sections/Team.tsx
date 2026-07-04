@@ -100,6 +100,7 @@ export function Team() {
                   href="#" 
                   onClick={(e) => e.preventDefault()} 
                   className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-fortis-navy hover:bg-fortis-gold hover:text-fortis-navy text-fortis-slate transition-colors"
+                  aria-label={`Profil LinkedIn ${selectedMember?.name}`}
                 >
                   <Linkedin size={18} />
                 </a>

@@ -67,7 +67,12 @@ export function Navbar() {
         </nav>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-fortis-white" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+        <button
+          className="md:hidden text-fortis-white"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? "Tutup menu" : "Buka menu"}
+          aria-expanded={mobileMenuOpen}
+        >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>

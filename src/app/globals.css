@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -46,7 +44,7 @@
 
   --color-fortis-gold: #C9A050;
   --color-fortis-navy: #0D1B2A;
-  --color-fortis-slate: #6B7A8D;
+  --color-fortis-slate: #7B8DA0;
   --color-fortis-white: #F8F6F1;
   --color-surface-low: #0d1d2c;
   --color-surface-highest: #273647;

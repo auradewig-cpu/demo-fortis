@@ -22,6 +22,14 @@ export default function RootLayout({
           href="/images/hero-bg.jpg"
           fetchPriority="high"
         />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+        />
       </head>
       <body className="font-sans antialiased bg-background text-foreground">
         {children}
