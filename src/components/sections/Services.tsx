@@ -52,23 +52,26 @@ export function Services() {
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const cards = gridRef.current?.children;
-      if (!cards) return;
-      gsap.from(cards, {
-        y: 60,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: gridRef.current,
-          start: "top 85%",
-          once: true,
-        },
+    let ctx: gsap.Context | null = null;
+    const raf = requestAnimationFrame(() => {
+      ctx = gsap.context(() => {
+        const cards = gridRef.current?.children;
+        if (!cards) return;
+        gsap.from(cards, {
+          y: 60,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        });
       });
     });
-    return () => ctx.revert();
+    return () => { cancelAnimationFrame(raf); ctx?.revert(); };
   }, []);
 
   return (

@@ -11,19 +11,22 @@ export function Navbar() {
   const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.to(progressRef.current, {
-        scaleX: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: document.body,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.3,
-        },
+    let ctx: gsap.Context | null = null;
+    const raf = requestAnimationFrame(() => {
+      ctx = gsap.context(() => {
+        gsap.to(progressRef.current, {
+          scaleX: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: document.body,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 0.3,
+          },
+        });
       });
     });
-    return () => ctx.revert();
+    return () => { cancelAnimationFrame(raf); ctx?.revert(); };
   }, []);
 
   useEffect(() => {
