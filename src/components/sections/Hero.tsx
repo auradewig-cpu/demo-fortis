@@ -9,6 +9,14 @@ export function Hero() {
   const bgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap";
+    document.head.appendChild(link);
+    return () => { link.remove(); };
+  }, []);
+
+  useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.to(bgRef.current, {
         y: "30%",

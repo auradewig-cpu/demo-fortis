@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
+import { DeferredSection } from "@/components/DeferredSection";
 
 const Stats = dynamic(() => import("@/components/sections/Stats").then((m) => ({ default: m.Stats })), {
   ssr: false,
@@ -32,12 +33,22 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
-        <Stats />
-        <Team />
-        <Testimonials />
-        <Contact />
+        <DeferredSection idleTimeout={2000}>
+          <Stats />
+        </DeferredSection>
+        <DeferredSection idleTimeout={3000}>
+          <Team />
+        </DeferredSection>
+        <DeferredSection idleTimeout={4000}>
+          <Testimonials />
+        </DeferredSection>
+        <DeferredSection idleTimeout={5000}>
+          <Contact />
+        </DeferredSection>
       </main>
-      <Footer />
+      <DeferredSection idleTimeout={6000}>
+        <Footer />
+      </DeferredSection>
     </div>
   );
 }
