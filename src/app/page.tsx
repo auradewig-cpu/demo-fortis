@@ -33,22 +33,12 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
-        <DeferredSection idleTimeout={2000}>
-          <Stats />
-        </DeferredSection>
-        <DeferredSection idleTimeout={3000}>
-          <Team />
-        </DeferredSection>
-        <DeferredSection idleTimeout={4000}>
-          <Testimonials />
-        </DeferredSection>
-        <DeferredSection idleTimeout={5000}>
-          <Contact />
-        </DeferredSection>
+        <DeferredSection><Stats /></DeferredSection>
+        <DeferredSection><Team /></DeferredSection>
+        <DeferredSection><Testimonials /></DeferredSection>
+        <DeferredSection><Contact /></DeferredSection>
       </main>
-      <DeferredSection idleTimeout={6000}>
-        <Footer />
-      </DeferredSection>
+      <DeferredSection><Footer /></DeferredSection>
     </div>
   );
 }

@@ -1,32 +1,22 @@
 import React, { useEffect, useState, useRef } from "react";
 
-export function DeferredSection({
-  children,
-  idleTimeout = 3000,
-}: {
-  children: React.ReactNode;
-  idleTimeout?: number;
-}) {
-  const [mounted, setMounted] = useState(false);
+export function DeferredSection({ children }: { children: React.ReactNode }) {
+  const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          observer.disconnect();
-          if ("requestIdleCallback" in window) {
-            requestIdleCallback(() => setMounted(true), { timeout: idleTimeout });
-          } else {
-            setTimeout(() => setMounted(true), 100);
-          }
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
         }
       },
       { rootMargin: "200px" }
     );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [idleTimeout]);
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
 
-  return <div ref={ref}>{mounted ? children : null}</div>;
+  return <div ref={ref}>{visible ? children : <div style={{ minHeight: 400 }} />}</div>;
 }
