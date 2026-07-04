@@ -39,8 +39,8 @@
   --color-destructive-foreground: hsl(var(--destructive-foreground));
   --color-destructive-border: var(--destructive-border);
 
-  --font-sans: 'Hanken Grotesk', sans-serif;
-  --font-serif: 'Domine', serif;
+  --font-sans: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  --font-serif: var(--font-serif, 'Domine', serif);
 
   --color-fortis-gold: #C9A050;
   --color-fortis-navy: #0D1B2A;

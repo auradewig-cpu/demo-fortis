@@ -14,7 +14,7 @@ export function Footer() {
           <p className="text-fortis-slate max-w-sm mb-6">
             Kemitraan strategis untuk solusi hukum dan bisnis yang presisi di Yogyakarta.
           </p>
-          <div className="text-sm text-fortis-slate/60">
+          <div className="text-sm text-fortis-slate/70">
             &copy; {new Date().getFullYear()} FORTIS Law & Consulting.<br/>Hak cipta dilindungi undang-undang.
           </div>
         </div>

@@ -1,13 +1,29 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
-import { Stats } from "@/components/sections/Stats";
-import { Team } from "@/components/sections/Team";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { Contact } from "@/components/sections/Contact";
-import { Footer } from "@/components/sections/Footer";
+
+const Stats = dynamic(() => import("@/components/sections/Stats").then((m) => ({ default: m.Stats })), {
+  ssr: false,
+});
+
+const Team = dynamic(() => import("@/components/sections/Team").then((m) => ({ default: m.Team })), {
+  ssr: false,
+});
+
+const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then((m) => ({ default: m.Testimonials })), {
+  ssr: false,
+});
+
+const Contact = dynamic(() => import("@/components/sections/Contact").then((m) => ({ default: m.Contact })), {
+  ssr: false,
+});
+
+const Footer = dynamic(() => import("@/components/sections/Footer").then((m) => ({ default: m.Footer })), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
